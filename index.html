@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-save en Spotify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="relative h-screen w-screen overflow-hidden">
+    <!-- Video de fondo -->
+    <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay muted loop playsinline>
+        <source src="./videos/VIDEO.webm" type="video/webm">
+    </video>
+    
+    <!-- Capa de oscurecimiento -->
+    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
+    
+    <!-- Contenido -->
+    <div class="absolute w-full h-full flex flex-col items-center justify-center text-white text-center px-4">
+        <a href="https://distrokid.com/hyperfollow/polosopuestos/fbulas" target="_blank" 
+        class="link flex justify-center font-['area-normal']
+         bg-amber-300 w-auto h-auto p-3 rounded-full
+          hover:bg-amber-400 transition-all duration-300 ease-in-out 
+          hover:scale-105 text-sm sm:text-base sm:p-4">Pre-save en Spotify</a>
+        
+        <div id="countdown" class="contador flex space-x-4 text-4xl md:text-6xl">
+            <div class="text-contador"><span id="days" class="font-bold">0</span><p class="text-sm font-semibold">Días</p></div>
+            <div class="dosPuntos font-bold">:</div>
+            <div class="text-contador"><span id="hours" class="font-bold">0</span><p class="text-sm font-semibold">Horas</p></div>
+            <div class="dosPuntos font-bold">:</div>
+            <div class="text-contador"><span id="minutes" class="font-bold">0</span><p class="text-sm font-semibold">Minutos</p></div>
+            <div class="dosPuntos font-bold">:</div>
+            <div class="text-contador"><span id="seconds" class="font-bold">0</span><p class="text-sm font-semibold">Segundos</p></div>
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const releaseDate = new Date('2025-04-10T00:00:00'); // Ajusta la fecha de lanzamiento
+            const now = new Date();
+            const diff = releaseDate - now;
+
+            if (diff <= 0) {
+                document.getElementById("countdown").innerHTML = "¡Ya disponible!";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>

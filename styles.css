@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import url("https://use.typekit.net/pyf5ctc.css");
+
+.contador{
+    align-items: center;
+    margin-bottom: 3rem;
+}
+.link{
+    margin-bottom: 3rem;
+}
+
+.text-contador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dosPuntos{
+    margin-bottom: 2rem;
+}
+
+html{
+    font-family: 'area-normal', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .contador{
+        align-items: center;
+        margin-bottom: 15rem;
+    }
+    .link{
+        margin-bottom: 3rem;
+    }
+}
